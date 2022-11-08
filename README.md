@@ -4,7 +4,7 @@
 - [ ] find some clone projects to get ideas
 
 #### Low level
-- [ ] install tailwind
+- [x] install tailwind
 - [ ] install angular material
 - [ ] import
 
