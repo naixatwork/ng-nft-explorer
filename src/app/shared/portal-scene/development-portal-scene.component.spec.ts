@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PortalSceneComponent } from './portal-scene.component';
+import { DevelopmentPortalSceneComponent } from './development-portal-scene.component';
 
 describe('PortalSceneComponent', () => {
-  let component: PortalSceneComponent;
-  let fixture: ComponentFixture<PortalSceneComponent>;
+  let component: DevelopmentPortalSceneComponent;
+  let fixture: ComponentFixture<DevelopmentPortalSceneComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PortalSceneComponent ]
+      declarations: [ DevelopmentPortalSceneComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PortalSceneComponent);
+    fixture = TestBed.createComponent(DevelopmentPortalSceneComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

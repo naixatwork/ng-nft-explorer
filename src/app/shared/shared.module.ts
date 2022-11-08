@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortalSceneComponent } from './portal-scene/portal-scene.component';
+import { DevelopmentPortalSceneComponent } from './portal-scene/development-portal-scene.component';
 
 
 
 @NgModule({
     declarations: [
-        PortalSceneComponent
+        DevelopmentPortalSceneComponent
     ],
     exports: [
-        PortalSceneComponent
+        DevelopmentPortalSceneComponent
     ],
     imports: [
         CommonModule
