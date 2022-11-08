@@ -1,5 +1,13 @@
 # NFT EXPLORER DEMO
 
+#### General
+- [ ] find some clone projects to get ideas
+
+#### Low level
+- [ ] install tailwind
+- [ ] install angular material
+- [ ] import
+
 #### The explorer will take an Ethereum address and will display the NFTs owned by that address.
 
 - [ ] connect to alchemy
