@@ -1,14 +1,14 @@
 import {TestBed} from '@angular/core/testing';
-import {TextureService} from './texture.service';
+import {TextureLoaderService} from './texture-loader.service';
 import * as THREE from "three"
 import {environment} from "#env/environment";
 
-describe('TextureService', () => {
-  let service: TextureService;
+describe('TextureLoaderService', () => {
+  let service: TextureLoaderService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TextureService);
+    service = TestBed.inject(TextureLoaderService);
   });
 
   it('should be created', () => {

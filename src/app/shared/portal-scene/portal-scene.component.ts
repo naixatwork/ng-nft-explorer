@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import * as THREE from "three";
 import {SceneService} from "./scene.service";
+import {TextureLoaderService} from "../../core/texture-loader.service";
 
 @Component({
   selector: 'app-portal-scene',
@@ -16,7 +17,10 @@ export class PortalSceneComponent implements OnInit {
     return this.canvasRef.nativeElement;
   }
 
-  constructor(private readonly sceneService: SceneService) {
+  constructor(
+    private readonly sceneService: SceneService,
+    private readonly textureService: TextureLoaderService
+  ) {
   }
 
   ngOnInit(): void {
