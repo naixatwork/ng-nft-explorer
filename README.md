@@ -20,7 +20,11 @@
   - [ ] custom theme
 - [x] implement dark theme
   - default theme is going to be dark
-- [ ] add and integrate three js
+- [x] add and integrate three js
+  - https://medium.com/geekculture/hello-cube-your-first-three-js-scene-in-angular-176c44b9c6c0
+  - https://robert-leitl.medium.com/how-to-add-a-glsl-loader-to-an-angular-project-c6b775273f08
+  - [ ] clean up
+  - [ ] performance search for window.requestAnimationFrame() in angular
 
 #### The explorer will take an Ethereum address and will display the NFTs owned by that address.
 
