@@ -13,7 +13,7 @@ import portalVertexShader from './shaders/portal/vertex.glsl'
 import portalFragmentShader from './shaders/portal/fragment.glsl'
 
 @Component({
-  selector: 'app-portal-scene',
+  selector: 'app-development-portal-scene',
   templateUrl: './development-portal-scene.component.html',
   styleUrls: ['./development-portal-scene.component.scss']
 })
