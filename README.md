@@ -13,6 +13,10 @@
 - [x] find a name
   - petitnft
 - [x] hero background
+- [ ] greetings page
+  - black and white
+  - galaxy theme with earth 3D element (more work because of UV map)
+  - portal with old 3D model (has default UV and existing code for three.js also portal could be a good metaphor)
 
 #### Low level
 - [x] install tailwind
