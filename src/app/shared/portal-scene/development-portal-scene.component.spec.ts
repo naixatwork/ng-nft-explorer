@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DevelopmentPortalSceneComponent } from './development-portal-scene.component';
 
-describe('PortalSceneComponent', () => {
+describe('DevelopmentPortalSceneComponent', () => {
   let component: DevelopmentPortalSceneComponent;
   let fixture: ComponentFixture<DevelopmentPortalSceneComponent>;
 
