@@ -25,6 +25,7 @@
 - [x] implement dark theme
   - default theme is going to be dark
 - [x] add and integrate three js
+  - For the first page alone React would be much better 
   - https://medium.com/geekculture/hello-cube-your-first-three-js-scene-in-angular-176c44b9c6c0
   - https://robert-leitl.medium.com/how-to-add-a-glsl-loader-to-an-angular-project-c6b775273f08
   - [ ] clean up
