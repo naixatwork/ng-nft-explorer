@@ -9,9 +9,10 @@ import {PortalSceneComponent} from './portal-scene/portal-scene.component';
     DevelopmentPortalSceneComponent,
     PortalSceneComponent
   ],
-  exports: [
-    DevelopmentPortalSceneComponent
-  ],
+    exports: [
+        DevelopmentPortalSceneComponent,
+        PortalSceneComponent
+    ],
   imports: [
     CommonModule
   ],

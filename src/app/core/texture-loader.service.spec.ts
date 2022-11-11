@@ -27,4 +27,4 @@ describe('TextureLoaderService', () => {
     expect(texture).toBeTruthy();
     expect(texture).toBeInstanceOf(THREE.Texture);
   });
-});
+})

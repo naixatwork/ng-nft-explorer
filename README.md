@@ -47,3 +47,4 @@
 - [ ] Preferred currency in settings
 - [ ] come up with a first big heading
   - Explore the other side of our portal to the world of [NFTs, Web3, Crypto, Metaverse] (while they change they also affect the portal color)
+- [ ] publish on GitHub page

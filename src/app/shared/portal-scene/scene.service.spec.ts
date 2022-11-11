@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import {SceneService} from './scene.service';
 import * as THREE from "three"
+import {Mesh} from "three";
 
 describe('SceneService', () => {
   let service: SceneService;
@@ -25,4 +26,17 @@ describe('SceneService', () => {
     expect(service["getScene"]).toBeTruthy();
     expect(service["getScene"]).toBeInstanceOf(THREE.Scene);
   });
+
+  it("should add an object3D to scene on #add()", () => {
+    const mesh = new Mesh();
+    const randomName = Math.random().toString();
+    mesh.name = randomName;
+
+    service.add(mesh);
+
+    const foundMesh = service.getScene.children.find((object3D) => object3D.name === randomName);
+
+    expect(service.getScene.children.length).withContext("scene's children should not be empty").not.toBe(0);
+    expect(foundMesh).withContext("mesh has been added").toBeTruthy();
+  })
 });

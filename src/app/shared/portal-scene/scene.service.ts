@@ -9,6 +9,10 @@ export class SceneService {
     return this.scene.clone();
   }
 
+  public add(...object3D: THREE.Object3D[]): void {
+    this.scene.add(...object3D);
+  }
+
   constructor() {
   }
 }
