@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import * as THREE from "three";
 import {SceneService} from "./scene.service";
 import {TextureLoaderService} from "../../core/texture-loader.service";
@@ -9,7 +9,7 @@ import portalVertexShader from "#shared/portal-scene/shaders/portal/vertex.glsl"
 // @ts-ignore
 import portalFragmentShader from "#shared/portal-scene/shaders/portal/fragment.glsl";
 import {GLTF} from "three/examples/jsm/loaders/GLTFLoader";
-import {loadSecondaryEntryPointInfoForApfV14} from "@angular/compiler-cli/ngcc/src/utils";
+import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 
 @Component({
   selector: 'app-portal-scene',
@@ -17,7 +17,7 @@ import {loadSecondaryEntryPointInfoForApfV14} from "@angular/compiler-cli/ngcc/s
   styleUrls: ['./portal-scene.component.scss'],
   providers: [SceneService]
 })
-export class PortalSceneComponent implements OnInit {
+export class PortalSceneComponent implements OnInit, AfterViewInit {
   @ViewChild("canvas")
   private canvasRef!: ElementRef;
 
@@ -29,7 +29,18 @@ export class PortalSceneComponent implements OnInit {
   private bakedPortalMaterial!: THREE.MeshBasicMaterial;
   private poleLightMaterial!: THREE.MeshBasicMaterial;
   private portalLightMaterial!: THREE.ShaderMaterial;
-  private portalMeshGroup!: THREE.Group;
+
+  @Input()
+  public width = window.innerWidth;
+
+  @Input()
+  public height = window.innerHeight;
+
+  private camera!: THREE.PerspectiveCamera;
+
+  private renderer!: THREE.WebGLRenderer;
+
+  private clock = new THREE.Clock();
 
   constructor(
     private readonly sceneService: SceneService,
@@ -54,9 +65,9 @@ export class PortalSceneComponent implements OnInit {
       this.portalLightMaterial = new THREE.ShaderMaterial({
         uniforms:
           {
-            uTime: { value: 0 },
-            uColorStart: { value: new THREE.Color("#ffffff") },
-            uColorEnd: { value: new THREE.Color("#ffffff") }
+            uTime: {value: 0},
+            uColorStart: {value: new THREE.Color("#ffffff")},
+            uColorEnd: {value: new THREE.Color("#ffffff")}
           },
         vertexShader: portalVertexShader,
         fragmentShader: portalFragmentShader
@@ -65,18 +76,18 @@ export class PortalSceneComponent implements OnInit {
 
     const initializePortalModel = (): void => {
       const onPortalGLTFLoad = (portalGLTF: GLTF) => {
-        this.portalMeshGroup = portalGLTF.scene;
+        this.sceneService.add(portalGLTF.scene)
 
-        const getMeshesFromGLTF = (): Record<string, THREE.Mesh> => {
-          const bakedMesh = this.portalMeshGroup.children.find((child) => child.name === 'baked') as THREE.Mesh;
-          const portalLightMesh = this.portalMeshGroup.children.find((child) => child.name === 'portalLight') as THREE.Mesh;
-          const poleLightAMesh = this.portalMeshGroup.children.find((child) => child.name === 'poleLightA') as THREE.Mesh;
-          const poleLightBMesh = this.portalMeshGroup.children.find((child) => child.name === 'poleLightB') as THREE.Mesh;
+        const getMeshesFromGLTF = (portalGLTF: GLTF): Record<string, THREE.Mesh> => {
+          const bakedMesh = portalGLTF.scene.children.find((child) => child.name === 'baked') as THREE.Mesh;
+          const portalLightMesh = portalGLTF.scene.children.find((child) => child.name === 'portalLight') as THREE.Mesh;
+          const poleLightAMesh = portalGLTF.scene.children.find((child) => child.name === 'poleLightA') as THREE.Mesh;
+          const poleLightBMesh = portalGLTF.scene.children.find((child) => child.name === 'poleLightB') as THREE.Mesh;
 
           return {bakedMesh, portalLightMesh, poleLightAMesh, poleLightBMesh};
         }
 
-        const {bakedMesh, portalLightMesh, poleLightAMesh, poleLightBMesh} = getMeshesFromGLTF();
+        const {bakedMesh, portalLightMesh, poleLightAMesh, poleLightBMesh} = getMeshesFromGLTF(portalGLTF);
 
         const setMeshesMaterial = (): void => {
           bakedMesh.material = this.bakedPortalMaterial;
@@ -91,16 +102,57 @@ export class PortalSceneComponent implements OnInit {
       this.gltfLoaderService.load(environment.portalGLTFFile, onPortalGLTFLoad)
     }
 
+    const initializeCamera = () => {
+      this.camera = new THREE.PerspectiveCamera(45, this.width / this.height, 0.1, 100);
+
+      const setCameraPosition = () => {
+        this.camera.position.x = 4;
+        this.camera.position.y = 2;
+        this.camera.position.z = 4;
+      }
+
+      setCameraPosition();
+      this.sceneService.add(this.camera);
+    }
+
     initializeBakedPortalTexture();
     initializeBakedPortalMaterial();
     initializePoleLightMaterial();
     initializePortalLightMaterial();
     initializePortalModel();
+    initializeCamera();
   }
-
-
 
   ngOnInit(): void {
   }
 
+  ngAfterViewInit(): void {
+    const initializeRenderer = () => {
+      this.renderer = new THREE.WebGLRenderer({
+        canvas: this.canvas,
+        antialias: true
+      })
+
+      this.renderer.outputEncoding = THREE.sRGBEncoding;
+      this.renderer.setSize(this.width, this.height);
+      this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    }
+
+    const controls = new OrbitControls(this.camera, this.canvas)
+    controls.enableDamping = true;
+
+    initializeRenderer();
+
+    const loop = () => {
+      const elapsedTime = this.clock.getElapsedTime();
+
+      this.portalLightMaterial.uniforms["uTime"].value = elapsedTime;
+      controls.update();
+      this.renderer.render(this.sceneService.getScene, this.camera);
+
+      window.requestAnimationFrame(loop)
+    }
+
+    loop();
+  }
 }

@@ -54,5 +54,21 @@ describe('PortalSceneComponent', () => {
     expect(material.uniforms["uTime"]).withContext("has a uTime uniform with value of 0").toEqual({value: 0});
   })
 
-  it("should initialize #portal")
+  it("should initialize #camera on #constructor()", () => {
+    const camera = component["camera"];
+
+    expect(camera).toBeTruthy();
+  })
+
+  it("should initialize #renderer on #ngAfterViewInit()", () => {
+    const renderer = component["renderer"];
+
+    expect(renderer).toBeTruthy();
+  })
+
+  it("should has #clock", () => {
+    const clock = component["clock"];
+
+    expect(clock).toBeTruthy();
+  })
 });
