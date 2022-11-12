@@ -13,7 +13,7 @@
 - [x] find a name
   - petitnft
 - [x] hero background
-- [ ] first page page
+- [ ] first page
   - black and white
   - galaxy theme with earth 3D element (more work because of UV map)
   - portal with old 3D model (has default UV and existing code for three.js also portal could be a good metaphor)
