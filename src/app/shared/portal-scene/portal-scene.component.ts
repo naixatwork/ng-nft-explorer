@@ -5,11 +5,16 @@ import {TextureLoaderService} from "../../core/texture-loader.service";
 import {GltfLoaderService} from "../../core/gltf-loader.service";
 import {environment} from "#env/environment";
 // @ts-ignore
+import firefliesVertexShader from "#shared/portal-scene/shaders/fireflies/vertex.glsl";
+// @ts-ignore
+import firefliesFragmentShader from "#shared/portal-scene/shaders/fireflies/fragment.glsl";
+// @ts-ignore
 import portalVertexShader from "#shared/portal-scene/shaders/portal/vertex.glsl";
 // @ts-ignore
 import portalFragmentShader from "#shared/portal-scene/shaders/portal/fragment.glsl";
 import {GLTF} from "three/examples/jsm/loaders/GLTFLoader";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
+
 
 @Component({
   selector: 'app-portal-scene',
@@ -29,6 +34,8 @@ export class PortalSceneComponent implements OnInit, AfterViewInit {
   private bakedPortalMaterial!: THREE.MeshBasicMaterial;
   private poleLightMaterial!: THREE.MeshBasicMaterial;
   private portalLightMaterial!: THREE.ShaderMaterial;
+  private fireFliesMaterial!: THREE.ShaderMaterial;
+
 
   @Input()
   public width = window.innerWidth;
@@ -66,7 +73,7 @@ export class PortalSceneComponent implements OnInit, AfterViewInit {
         uniforms:
           {
             uTime: {value: 0},
-            uColorStart: {value: new THREE.Color("#ffffff")},
+            uColorStart: {value: new THREE.Color("#000000")},
             uColorEnd: {value: new THREE.Color("#ffffff")}
           },
         vertexShader: portalVertexShader,
@@ -115,12 +122,56 @@ export class PortalSceneComponent implements OnInit, AfterViewInit {
       this.sceneService.add(this.camera);
     }
 
+    const initializeFireFlies = () => {
+      const firefliesGeometry = new THREE.BufferGeometry();
+      const firefliesCount = 30;
+      const positionArray = new Float32Array(firefliesCount * 3);
+      const scaleArray = new Float32Array(firefliesCount);
+
+      const setFireFliesPositionsRandomly = () => {
+        for (let i = 0; i < firefliesCount; i++) {
+          positionArray[i * 3 + 0] = (Math.random() - 0.5) * 4;
+          positionArray[i * 3 + 1] = Math.random() * 1.5;
+          positionArray[i * 3 + 2] = (Math.random() - 0.5) * 4;
+
+          scaleArray[i] = Math.random();
+        }
+      }
+
+      setFireFliesPositionsRandomly();
+
+      const setFireFliesGeometryAttributes = () => {
+        firefliesGeometry.setAttribute('position', new THREE.BufferAttribute(positionArray, 3));
+        firefliesGeometry.setAttribute('aScale', new THREE.BufferAttribute(scaleArray, 1));
+      }
+
+      setFireFliesGeometryAttributes();
+
+      this.fireFliesMaterial = new THREE.ShaderMaterial({
+        uniforms:
+          {
+            uTime: {value: 0},
+            uPixelRatio: {value: Math.min(window.devicePixelRatio, 2)},
+            uSize: {value: 100}
+          },
+        vertexShader: firefliesVertexShader,
+        fragmentShader: firefliesFragmentShader,
+        transparent: true,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
+      })
+
+      const fireflies = new THREE.Points(firefliesGeometry, this.fireFliesMaterial);
+      this.sceneService.add(fireflies);
+    }
+
     initializeBakedPortalTexture();
     initializeBakedPortalMaterial();
     initializePoleLightMaterial();
     initializePortalLightMaterial();
     initializePortalModel();
     initializeCamera();
+    initializeFireFlies();
   }
 
   ngOnInit(): void {
@@ -147,6 +198,8 @@ export class PortalSceneComponent implements OnInit, AfterViewInit {
       const elapsedTime = this.clock.getElapsedTime();
 
       this.portalLightMaterial.uniforms["uTime"].value = elapsedTime;
+      this.fireFliesMaterial.uniforms["uTime"].value = elapsedTime
+
       controls.update();
       this.renderer.render(this.sceneService.getScene, this.camera);
 

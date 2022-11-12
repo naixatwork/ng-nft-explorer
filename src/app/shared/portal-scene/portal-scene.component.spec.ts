@@ -1,4 +1,4 @@
-import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {PortalSceneComponent} from './portal-scene.component';
 import * as THREE from "three";
 
@@ -70,5 +70,16 @@ describe('PortalSceneComponent', () => {
     const clock = component["clock"];
 
     expect(clock).toBeTruthy();
+  })
+
+  it("should initialize #fireFliesMaterial on #constructor()", () => {
+    const material = component["fireFliesMaterial"];
+
+    expect(material).toBeTruthy();
+    expect(material.vertexShader).withContext("has a valid vertexShader").toBeTruthy();
+    expect(material.fragmentShader).withContext("has a valid fragmentShader").toBeTruthy();
+    expect(material.uniforms["uTime"].value).withContext("has a uTime uniform with value of 0").toEqual(0);
+    expect(material.uniforms["uPixelRatio"].value).withContext("has a uPixelRatio uniform").toBeTruthy();
+    expect(material.uniforms["uSize"].value).withContext("has a uTime uniform").toBeDefined();
   })
 });
