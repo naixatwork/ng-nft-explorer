@@ -43,6 +43,9 @@ export class PortalSceneComponent implements OnInit, AfterViewInit {
   @Input()
   public height = window.innerHeight;
 
+  @Input()
+  public rendererClearColor = "#000000";
+
   private camera!: THREE.PerspectiveCamera;
 
   private renderer!: THREE.WebGLRenderer;
@@ -73,7 +76,7 @@ export class PortalSceneComponent implements OnInit, AfterViewInit {
         uniforms:
           {
             uTime: {value: 0},
-            uColorStart: {value: new THREE.Color("#000000")},
+            uColorStart: {value: new THREE.Color("#47c4e3")},
             uColorEnd: {value: new THREE.Color("#ffffff")}
           },
         vertexShader: portalVertexShader,
@@ -187,6 +190,7 @@ export class PortalSceneComponent implements OnInit, AfterViewInit {
       this.renderer.outputEncoding = THREE.sRGBEncoding;
       this.renderer.setSize(this.width, this.height);
       this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      this.renderer.setClearColor(this.rendererClearColor)
     }
 
     const controls = new OrbitControls(this.camera, this.canvas)

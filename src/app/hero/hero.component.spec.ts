@@ -20,4 +20,8 @@ describe('HeroComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it("", () => {
+
+  })
 });

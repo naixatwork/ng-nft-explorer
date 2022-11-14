@@ -34,8 +34,8 @@
   - For the first page alone React would be much better 
   - https://medium.com/geekculture/hello-cube-your-first-three-js-scene-in-angular-176c44b9c6c0
   - https://robert-leitl.medium.com/how-to-add-a-glsl-loader-to-an-angular-project-c6b775273f08
-  - [ ] clean up
-  - [ ] performance search for window.requestAnimationFrame() in angular
+  - [x] clean up
+  - [x] performance search for window.requestAnimationFrame() in angular
 
 #### The explorer will take an Ethereum address and will display the NFTs owned by that address.
 
@@ -51,6 +51,7 @@
 #### Extra functionality can be added as long as the core functionality is implemented.
 - [ ] NFT rankings
 - [ ] Preferred currency in settings
-- [ ] come up with a first big heading
-  - Explore the other side of our portal to the world of [NFTs, Web3, Crypto, Metaverse] (while they change they also affect the portal color)
+- [x] come up with a first big heading
+  - Explore the other side to the world of [NFTs, Web3, Crypto, Metaverse] (while they change they also affect the portal color)
+- [ ] change page's title
 - [ ] publish on GitHub page

@@ -1,0 +1,9 @@
+.hero {
+  &__background {
+    background-color: #201919;
+  }
+
+  &__title {
+    @apply text-5xl text-amber-200 text-center
+  }
+}
