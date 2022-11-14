@@ -14,10 +14,13 @@ import {MatInputModule} from "@angular/material/input";
   ],
   imports: [
     CommonModule,
-    HeroRoutingModule,
     SharedModule,
+    HeroRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-  ]
+  ],
+  exports: [
+  ],
+  providers: []
 })
 export class HeroModule { }

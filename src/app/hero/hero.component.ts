@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-hero',
@@ -6,8 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent implements OnInit {
+  public form!: FormGroup;
 
-  constructor() { }
+  constructor(
+    private readonly formBuilder: FormBuilder,
+  ) {
+    this.createForm();
+  }
+
+  private createForm(): void {
+    this.form = this.formBuilder.group({
+      nftAddress: [{value: ''}, [Validators.required]]
+    })
+  }
 
   ngOnInit(): void {
   }

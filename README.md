@@ -41,6 +41,7 @@
 
 - [ ] connect to alchemy
 - [ ] find a demo address
+- [ ] make a nft-search-control that connects to alchemy and preload
 
 #### Additionally, the page should be graphically pleasant and include an animation or a 3D, metaverse-themed element.
 
