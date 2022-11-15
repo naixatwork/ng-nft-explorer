@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MainBarTitleService} from "../../core/main-bar-title.service";
 
 @Component({
   selector: 'app-main-bar',
@@ -12,7 +13,9 @@ export class MainBarComponent implements OnInit {
     return this._menuToggle;
   }
 
-  constructor() { }
+  constructor(
+    public readonly mainBarTitleService: MainBarTitleService
+  ) { }
 
   public toggleMenu(): void {
     this._menuToggle = !this._menuToggle;

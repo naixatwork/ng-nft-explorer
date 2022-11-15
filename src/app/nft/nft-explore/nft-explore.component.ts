@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MainBarTitleService} from "../../core/main-bar-title.service";
 
 @Component({
   selector: 'app-nft-explore',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NftExploreComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private readonly mainBarTitleService: MainBarTitleService
+  ) {
+    const setMainBarTitle = () => {
+      this.mainBarTitleService.title$.next("Search NFTs");
+    }
+
+    setMainBarTitle();
+  }
 
   ngOnInit(): void {
   }

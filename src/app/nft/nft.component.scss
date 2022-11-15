@@ -28,14 +28,16 @@
   }
 
   &__content {
-    transition: margin-left 300ms ease;
+    transition: margin-left 300ms ease, width 300ms ease;
 
     &--wide {
       margin-left: $drawer-tight-width !important;
+      width: calc(100% - #{$drawer-tight-width}) !important;
     }
 
     &--tight {
       margin-left: $drawer-wide-width !important;
+      width: calc(100% - #{$drawer-wide-width}) !important;
     }
 
     @apply h-full w-full;

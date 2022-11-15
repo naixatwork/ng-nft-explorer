@@ -6,6 +6,7 @@ import {NftComponent} from './nft.component';
 import { NftExploreComponent } from './nft-explore/nft-explore.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {SharedModule} from "#shared/shared.module";
+import {MatDividerModule} from "@angular/material/divider";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {SharedModule} from "#shared/shared.module";
     CommonModule,
     NftRoutingModule,
     MatSidenavModule,
-    SharedModule
+    SharedModule,
+    MatDividerModule
   ]
 })
 export class NftModule {
