@@ -1,26 +1,26 @@
 <div class="hero__background w-full min-h-full pt-20 px-28 flex flex-col items-center justify-center gap-10">
-  <h1 class="hero__title">Explore the other side to the world of <span
+  <h1 @titleFadeIn class="hero__title">Explore the other side to the world of <span
     class="font-bold">NFTs, Web3, Crypto, Metaverse</span></h1>
   <div class="w-1/2 mx-auto flex flex-col gap-2 justify-center items-center">
     <form [formGroup]="form" class="w-full">
-      <mat-form-field appearance="outline" color="accent" class="w-full">
+      <mat-form-field @controlFadeIn appearance="outline" color="accent" class="w-full">
         <mat-label>Ethereum Address</mat-label>
         <app-nft-search-control #control formControlName="nftAddress"></app-nft-search-control>
         <mat-hint
-          @fadeInOut
+          @controlHints
           *ngIf="control.isLoading"
           class="hero__control-hint"
         >Working on it...
         </mat-hint>
         <mat-hint
-          @fadeInOut
+          @controlHints
           *ngIf="control.loadedNftsCount && !control.hasIncorrectAddressError"
           class="hero__control-hint flex gap-2 justify-center items-baseline">
           Found {{control.loadedNftsCount}} NFTs.
           <button mat-flat-button color="accent">Explore</button>
         </mat-hint>
         <mat-error
-          @fadeInOut
+          @controlHints
           *ngIf="control.hasIncorrectAddressError" class=" hero__control-hint hero__control-hint--error">
           Please provide a valid address
         </mat-error>
