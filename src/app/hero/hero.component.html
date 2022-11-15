@@ -1,18 +1,21 @@
-<div class="hero__background w-full min-h-full flex justify-center pt-20">
+<div class="hero__background w-full min-h-full flex justify-center pt-24">
   <div class="flex flex-col gap-2">
     <h1 class="hero__title">Explore the other side to the world of <span class="font-bold">NFTs, Web3, Crypto, Metaverse</span></h1>
-    <form
-      [formGroup]="form"
-    >
-      <mat-form-field appearance="outline" color="accent" class="w-full">
-        <mat-label>NFT Address</mat-label>
-        <app-nft-search-control formControlName="nftAddress"></app-nft-search-control>
-      </mat-form-field>
-    </form>
-<!--    <app-portal-scene-->
-<!--      [width]="1280"-->
-<!--      [height]="720"-->
-<!--      rendererClearColor="#201919"-->
-<!--    ></app-portal-scene>-->
+    <div>
+      <form
+        [formGroup]="form"
+      >
+        <mat-form-field appearance="outline" color="accent" class="w-full">
+          <mat-label>NFT Address</mat-label>
+          <app-nft-search-control formControlName="nftAddress"></app-nft-search-control>
+
+        </mat-form-field>
+      </form>
+    </div>
+    <app-portal-scene
+      [width]="1280"
+      [height]="720"
+      rendererClearColor="#201919"
+    ></app-portal-scene>
   </div>
 </div>

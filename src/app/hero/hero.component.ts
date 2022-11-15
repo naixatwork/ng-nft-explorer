@@ -17,7 +17,7 @@ export class HeroComponent implements OnInit {
 
   private createForm(): void {
     this.form = this.formBuilder.group({
-      nftAddress: [{value: ''}, [Validators.required]]
+      nftAddress: [{address: ''}, [Validators.required]]
     })
   }
 

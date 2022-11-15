@@ -1,0 +1,6 @@
+.search-control {
+  &__progress {
+    @apply absolute w-full;
+    bottom: -5px;
+  }
+}
