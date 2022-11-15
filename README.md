@@ -39,15 +39,18 @@
 
 #### The explorer will take an Ethereum address and will display the NFTs owned by that address.
 
-- [ ] connect to alchemy
-- [ ] find a demo address
-- [ ] make a nft-search-control that connects to alchemy and preload
+- [x] connect to alchemy
+- [x] find a demo address
+  - 0x6a71efbC3D99cB376730fbD27FA0a00EFee4810F
+  - 0x4c8d55C6E0CE52c6D4AD2B4C408968797823F29B
+- [x] make a nft-search-control that connects to alchemy and tries to find nft owned counts
 
 #### Additionally, the page should be graphically pleasant and include an animation or a 3D, metaverse-themed element.
 
-- [ ] Art gallery with Three.js?
-- [ ] cool first page with some 3D element
-- [ ] import portal 3D scene
+- [x] ~~Art gallery with Three.js?~~
+  - too expensive
+- [x] cool first page with some 3D element
+- [x] import portal 3D scene
 
 #### Extra functionality can be added as long as the core functionality is implemented.
 - [ ] NFT rankings
