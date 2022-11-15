@@ -12,6 +12,10 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatRippleModule} from "@angular/material/core";
 import { DrawerWideDirective } from './drawer-wide.directive';
+import { SideBarComponent } from './side-bar/side-bar.component';
+import {MatDividerModule} from "@angular/material/divider";
+import {MatListModule} from "@angular/material/list";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 @NgModule({
@@ -19,7 +23,8 @@ import { DrawerWideDirective } from './drawer-wide.directive';
     PortalSceneComponent,
     NftSearchControlComponent,
     MainBarComponent,
-    DrawerWideDirective
+    DrawerWideDirective,
+    SideBarComponent
   ],
   imports: [
     CommonModule,
@@ -32,15 +37,19 @@ import { DrawerWideDirective } from './drawer-wide.directive';
     MatButtonModule,
     MatIconModule,
     MatRippleModule,
+    MatDividerModule,
+    MatListModule,
+    MatTooltipModule,
   ],
-  exports: [
-    PortalSceneComponent,
-    FormsModule,
-    ReactiveFormsModule,
-    NftSearchControlComponent,
-    MainBarComponent,
-    DrawerWideDirective,
-  ],
+    exports: [
+        PortalSceneComponent,
+        FormsModule,
+        ReactiveFormsModule,
+        NftSearchControlComponent,
+        MainBarComponent,
+        DrawerWideDirective,
+        SideBarComponent,
+    ],
   providers: []
 })
 export class SharedModule {

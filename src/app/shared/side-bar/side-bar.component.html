@@ -1,0 +1,31 @@
+<div class="side-bar">
+  <div class="flex gap-2 justify-center items-center mb-20">
+    <img class="rounded-3xl w-12" src="/assets/icons/petitcode.png" alt="petitcode logo">
+    <p *ngIf="isWide" class="text-3xl truncate"><span class="font-bold">petit</span>&hairsp;nft</p>
+  </div>
+
+  <mat-nav-list>
+    <div mat-subheader *ngIf="isWide">NFTs</div>
+    <mat-list-item class="bg-slate-400" matTooltip="Search NFTs">
+      <mat-icon mat-list-icon>search</mat-icon>
+      <a matLine>Search</a>
+    </mat-list-item>
+    <mat-list-item matTooltip="Trending NFTs" >
+      <mat-icon mat-list-icon>trending_up</mat-icon>
+      <a matLine>Trending</a>
+    </mat-list-item>
+    <div mat-subheader class="truncate ..." *ngIf="isWide">Tokens</div>
+    <mat-list-item matTooltip="Explore Tokens">
+      <mat-icon mat-list-icon>generating_tokens</mat-icon>
+      <a matLine>Explore</a>
+    </mat-list-item>
+    <mat-list-item matTooltip="Swap Tokens">
+      <mat-icon mat-list-icon>swap_horiz</mat-icon>
+      <a matLine>Swap</a>
+    </mat-list-item>
+  </mat-nav-list>
+
+  <div *ngIf="isWide" class="mt-auto">
+    <p class="text-xs text-center truncate">version: demo</p>
+  </div>
+</div>

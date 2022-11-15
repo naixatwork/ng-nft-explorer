@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainBarComponent implements OnInit {
 
-  private _menuToggle = false;
+  private _menuToggle = true;
   public get menuToggle(): boolean {
     return this._menuToggle;
   }

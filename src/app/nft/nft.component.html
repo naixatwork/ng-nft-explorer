@@ -6,14 +6,14 @@
         mode="side"
         class="dashboard__drawer"
         appDrawerWide
-        [ngClass]="{'dashboard__drawer--wide': !mainBar.menuToggle, 'dashboard__drawer--tight': mainBar.menuToggle}"
+        [ngClass]="{'dashboard__drawer--wide': mainBar.menuToggle, 'dashboard__drawer--tight': !mainBar.menuToggle}"
       >
-        <p>Auto-resizing sidenav</p>
+        <app-side-bar [isWide]="mainBar.menuToggle" ></app-side-bar>
       </mat-drawer>
 
       <mat-drawer-content
         class="dashboard__content"
-        [ngClass]="{'dashboard__content--wide': mainBar.menuToggle, 'dashboard__content--tight': !mainBar.menuToggle}"
+        [ngClass]="{'dashboard__content--wide': !mainBar.menuToggle, 'dashboard__content--tight': mainBar.menuToggle}"
       >
         <app-main-bar #mainBar></app-main-bar>
         <router-outlet></router-outlet>

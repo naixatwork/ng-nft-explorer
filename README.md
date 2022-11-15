@@ -53,6 +53,8 @@
 - [x] import portal 3D scene
 
 #### Extra functionality can be added as long as the core functionality is implemented.
+- [ ] personalize dashboard
+  - drawer's default size
 - [ ] NFT rankings
 - [ ] Preferred currency in settings
 - [x] come up with a first big heading

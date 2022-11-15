@@ -9,13 +9,13 @@
 }
 
 .dashboard {
-  $drawer-tight-width: 5rem;
+  $drawer-tight-width: 4rem;
   $drawer-wide-width: 15rem;
 
   @apply w-full h-full rounded-2xl;
 
   &__drawer {
-    @apply bg-transparent;
+    @apply bg-transparent overflow-hidden;
     transition: width 300ms ease;
 
     &--wide {
