@@ -32,6 +32,10 @@ export class NftSearchControlComponent extends MatFormFieldAdapter<{ address: st
     return this._isLoading;
   }
 
+  public get hasIncorrectAddressError(): boolean {
+    return this.form.hasError("incorrectAddress");
+  }
+
   public loadedNftsCount = 0;
 
   constructor(
@@ -59,6 +63,14 @@ export class NftSearchControlComponent extends MatFormFieldAdapter<{ address: st
 
     const onNftsFailed = () => {
       this._isLoading = false;
+
+      const setIncorrectAddressError = () => {
+        this.form.setErrors({"incorrectAddress": true});
+      }
+
+      if(this.form.touched) {
+        setIncorrectAddressError();
+      }
     }
 
     this.form.valueChanges

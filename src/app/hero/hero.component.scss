@@ -6,4 +6,12 @@
   &__title {
     @apply text-5xl text-amber-200 text-center
   }
+
+  &__control-hint {
+    @apply text-lg text-amber-300 w-full text-center;
+
+    &--error {
+      @apply text-red-400;
+    }
+  }
 }

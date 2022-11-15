@@ -6,19 +6,21 @@ import {HeroComponent} from './hero.component';
 import {SharedModule} from "#shared/shared.module";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
   declarations: [
     HeroComponent,
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    HeroRoutingModule,
-    MatFormFieldModule,
-    MatInputModule,
-  ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        HeroRoutingModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+    ],
   exports: [
   ],
   providers: []

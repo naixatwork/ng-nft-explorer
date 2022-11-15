@@ -113,7 +113,7 @@ export class PortalSceneComponent implements OnInit, AfterViewInit {
     }
 
     const initializeCamera = () => {
-      this.camera = new THREE.PerspectiveCamera(45, this.width / this.height, 0.1, 100);
+      this.camera = new THREE.PerspectiveCamera(40, this.width / this.height, 0.1, 100);
 
       const setCameraPosition = () => {
         this.camera.position.x = 4;

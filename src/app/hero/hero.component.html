@@ -1,21 +1,25 @@
-<div class="hero__background w-full min-h-full flex justify-center pt-24">
-  <div class="flex flex-col gap-2">
-    <h1 class="hero__title">Explore the other side to the world of <span class="font-bold">NFTs, Web3, Crypto, Metaverse</span></h1>
-    <div>
-      <form
-        [formGroup]="form"
-      >
-        <mat-form-field appearance="outline" color="accent" class="w-full">
-          <mat-label>NFT Address</mat-label>
-          <app-nft-search-control formControlName="nftAddress"></app-nft-search-control>
-
-        </mat-form-field>
-      </form>
-    </div>
-    <app-portal-scene
-      [width]="1280"
-      [height]="720"
-      rendererClearColor="#201919"
-    ></app-portal-scene>
+<div class="hero__background w-full min-h-full pt-20 px-28 flex flex-col items-center justify-center gap-10">
+  <h1 class="hero__title">Explore the other side to the world of <span
+    class="font-bold">NFTs, Web3, Crypto, Metaverse</span></h1>
+  <div class="w-1/2 mx-auto flex flex-col gap-2 justify-center items-center">
+    <form [formGroup]="form" class="w-full">
+      <mat-form-field appearance="outline" color="accent" class="w-full">
+        <mat-label>Ethereum Address</mat-label>
+        <app-nft-search-control #control formControlName="nftAddress"></app-nft-search-control>
+        <mat-hint *ngIf="control.isLoading" class="hero__control-hint">Working on it...</mat-hint>
+        <mat-hint *ngIf="control.loadedNftsCount && !control.hasIncorrectAddressError" class="hero__control-hint flex gap-2 justify-center items-baseline">
+          Found {{control.loadedNftsCount}} NFTs.
+          <button mat-flat-button color="accent">Explore</button>
+        </mat-hint>
+        <mat-error *ngIf="control.hasIncorrectAddressError" class=" hero__control-hint hero__control-hint--error">
+          Please provide a valid address
+        </mat-error>
+      </mat-form-field>
+    </form>
   </div>
+  <app-portal-scene
+    [width]="1600"
+    [height]="900"
+    rendererClearColor="#201919"
+  ></app-portal-scene>
 </div>
