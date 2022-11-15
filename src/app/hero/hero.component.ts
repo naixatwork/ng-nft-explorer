@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {Route, Router} from "@angular/router";
 
 const controlHints = trigger("controlHints", [
   state("void", style({
@@ -49,6 +50,7 @@ export class HeroComponent implements OnInit {
 
   constructor(
     private readonly formBuilder: FormBuilder,
+    private readonly router: Router
   ) {
     this.createForm();
   }
@@ -62,4 +64,7 @@ export class HeroComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public redirectToNftModule(): void {
+    this.router.navigate(["/", "nft", this.form.value["nftAddress"].address]);
+  }
 }

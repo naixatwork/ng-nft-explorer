@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import("./hero/hero.module").then(m => m.HeroModule)
   },
   {
+    path: "nft",
+    loadChildren: () => import("./nft/nft.module").then(m => m.NftModule)
+  },
+  {
     path: '**',
     redirectTo: "/hero"
   }

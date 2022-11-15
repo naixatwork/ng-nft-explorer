@@ -7,12 +7,19 @@ import {MatInputModule} from "@angular/material/input";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { MainBarComponent } from './main-bar/main-bar.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatRippleModule} from "@angular/material/core";
+import { DrawerWideDirective } from './drawer-wide.directive';
 
 
 @NgModule({
   declarations: [
     PortalSceneComponent,
-    NftSearchControlComponent
+    NftSearchControlComponent,
+    MainBarComponent,
+    DrawerWideDirective
   ],
   imports: [
     CommonModule,
@@ -22,12 +29,17 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatChipsModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    MatButtonModule,
+    MatIconModule,
+    MatRippleModule,
   ],
   exports: [
     PortalSceneComponent,
     FormsModule,
     ReactiveFormsModule,
     NftSearchControlComponent,
+    MainBarComponent,
+    DrawerWideDirective,
   ],
   providers: []
 })

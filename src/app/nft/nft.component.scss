@@ -1,0 +1,56 @@
+.background {
+  @apply h-full w-full px-16 py-10;
+  background-image: url("/assets/backgrounds/pink-lava-lamp.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  scroll-behavior: smooth;
+  overflow: auto;
+}
+
+.dashboard {
+  $drawer-tight-width: 5rem;
+  $drawer-wide-width: 15rem;
+
+  @apply w-full h-full rounded-2xl;
+
+  &__drawer {
+    @apply bg-transparent;
+    transition: width 300ms ease;
+
+    &--wide {
+      width: $drawer-wide-width;
+    }
+
+    &--tight {
+      width: $drawer-tight-width;
+    }
+  }
+
+  &__content {
+    transition: margin-left 300ms ease;
+
+    &--wide {
+      margin-left: $drawer-tight-width !important;
+    }
+
+    &--tight {
+      margin-left: $drawer-wide-width !important;
+    }
+
+    @apply h-full w-full;
+    background: rgba(30, 41, 59, 0.86);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(30, 41, 59, 1);
+  }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.41);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.9px);
+  -webkit-backdrop-filter: blur(8.9px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}

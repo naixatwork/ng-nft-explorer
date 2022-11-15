@@ -18,7 +18,7 @@
           *ngIf="control.loadedNftsCount && !control.hasIncorrectAddressError"
           class="hero__control-hint flex gap-2 justify-center items-baseline">
           Found {{control.loadedNftsCount}} NFTs.
-          <button mat-flat-button color="accent">Explore</button>
+          <button [disabled]="form.invalid" (click)="redirectToNftModule()" mat-flat-button color="accent">Explore</button>
         </mat-hint>
         <mat-error
           @controlHints

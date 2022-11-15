@@ -1,0 +1,24 @@
+<div class="background">
+  <div class="dashboard glass">
+    <mat-drawer-container class="w-full h-full rounded-2xl bg-transparent">
+      <mat-drawer
+        opened
+        mode="side"
+        class="dashboard__drawer"
+        appDrawerWide
+        [ngClass]="{'dashboard__drawer--wide': !mainBar.menuToggle, 'dashboard__drawer--tight': mainBar.menuToggle}"
+      >
+        <p>Auto-resizing sidenav</p>
+      </mat-drawer>
+
+      <mat-drawer-content
+        class="dashboard__content"
+        [ngClass]="{'dashboard__content--wide': mainBar.menuToggle, 'dashboard__content--tight': !mainBar.menuToggle}"
+      >
+        <app-main-bar #mainBar></app-main-bar>
+        <router-outlet></router-outlet>
+      </mat-drawer-content>
+
+    </mat-drawer-container>
+  </div>
+</div>
