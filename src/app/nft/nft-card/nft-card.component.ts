@@ -22,7 +22,6 @@ export class NftCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.nft)
   }
 
 }
