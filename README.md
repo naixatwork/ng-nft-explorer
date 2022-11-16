@@ -1,5 +1,19 @@
 # NFT EXPLORER DEMO
 
+### How to run the project
+- make sure that you have installed the latest version of node js
+- to run the project please run ``npm i`` followed by ``npm start``
+
+#### development
+- TDD
+- Clean Code
+- None Destructive CSS
+- SOLID Principles
+- Angular coding style guide
+  - https://angular.io/guide/styleguide
+- Modern UI with good UX
+  - glass morphism without considering it's flaws
+
 #### General
 - [x] find and rank some clone projects to get ideas
   - https://www.figma.com/community/file/1168875964024686985
