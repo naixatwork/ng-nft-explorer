@@ -28,6 +28,7 @@
   }
 
   &__content {
+    @apply overflow-hidden;
     transition: margin-left 300ms ease, width 300ms ease;
 
     &--wide {

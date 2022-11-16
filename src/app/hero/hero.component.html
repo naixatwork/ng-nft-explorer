@@ -7,6 +7,7 @@
       <mat-form-field @controlFadeIn appearance="outline" color="accent" class="w-full">
         <mat-label>Ethereum Address</mat-label>
         <app-nft-search-control #control formControlName="nftAddress"></app-nft-search-control>
+        <img matSuffix class="w-10" src="assets/icons/Ethereum-icon-purple.svg" alt="Ethereum icon">
         <mat-hint
           @controlHints
           *ngIf="control.isLoading"

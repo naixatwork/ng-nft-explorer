@@ -15,7 +15,9 @@
         [ngClass]="{'dashboard__content--wide': !mainBar.menuToggle, 'dashboard__content--tight': mainBar.menuToggle}"
       >
         <app-main-bar #mainBar></app-main-bar>
-        <router-outlet></router-outlet>
+        <div class="w-full h-full overflow-auto">
+          <router-outlet></router-outlet>
+        </div>
       </mat-drawer-content>
 
     </mat-drawer-container>

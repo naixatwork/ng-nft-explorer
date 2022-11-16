@@ -1,0 +1,13 @@
+<div class="w-full h-full relative rounded-2xl bg-slate-900 shadow-sm">
+  <div class="absolute top-0 right-0 p-2">
+    <mat-chip-list>
+      <mat-chip class="bg-slate-700">{{nft.tokenType}}</mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <img class="w-full aspect-square rounded-t-2xl" [src]="thumbnail || image" alt="">
+  <div class="flex flex-col p-5">
+    <p class="font-bold text-lg">{{nft.title}}</p>
+    <p class="text-sm truncate">{{nft.description}}</p>
+  </div>
+</div>

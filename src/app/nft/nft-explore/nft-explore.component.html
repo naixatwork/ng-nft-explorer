@@ -1,1 +1,31 @@
-<p>nft-explore works!</p>
+<div class="p-5 mt-14">
+  <div class="flex gap-1">
+    <h1 class="font-bold text-3xl">Search by Ethereum Address</h1>
+    <img class="w-8" src="assets/icons/Ethereum-icon-purple.svg" alt="Ethereum icon">
+  </div>
+  <div class="mt-5">
+    <form [formGroup]="form">
+      <mat-form-field appearance="fill" color="accent" class="w-full">
+        <mat-label>Ethereum Address</mat-label>
+        <app-nft-search-control #control formControlName="ethereumAddress"></app-nft-search-control>
+        <img matSuffix class="w-10" src="assets/icons/Ethereum-icon-purple.svg" alt="Ethereum icon">
+        <mat-hint
+          *ngIf="control.isLoading"
+        >Working on it...
+        </mat-hint>
+        <mat-error
+          *ngIf="control.hasIncorrectAddressError">
+          Please provide a valid address
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="mt-5 grid grid-cols-4 gap-10">
+    <div *ngFor="let nft of ownedNfts$ | async; index as i">
+      <app-nft-card [nft]="nft"></app-nft-card>
+    </div>
+  </div>
+
+  <div class="mb-20"></div>
+</div>
