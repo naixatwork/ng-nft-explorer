@@ -1,7 +1,7 @@
 # NFT EXPLORER DEMO
 
 #### General
-- [ ] find and rank some clone projects to get ideas
+- [x] find and rank some clone projects to get ideas
   - https://www.figma.com/community/file/1168875964024686985
   - https://www.nftexplorer.app/collections
   - https://dappradar.com/hub/nft-explorer
@@ -13,21 +13,21 @@
 - [x] find a name
   - petitnft
 - [x] hero background
-- [ ] first page
+- [x] first page
   - black and white
   - galaxy theme with earth 3D element (more work because of UV map)
   - portal with old 3D model (has default UV and existing code for three.js also portal could be a good metaphor)
 
 #### First page
 - [x] load portal 3D model
-  - [ ] background color
-- [ ] title
+  - [x] background color
+- [x] title
 - [ ] text animation that's sync with portal color
 
 #### Low level
 - [x] install tailwind
 - [x] install angular material
-  - [ ] custom theme
+  - [x] custom theme
 - [x] implement dark theme
   - default theme is going to be dark
 - [x] add and integrate three js
