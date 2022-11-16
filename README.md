@@ -4,7 +4,7 @@
 - make sure that you have installed the latest version of node js
 - to run the project please run ``npm i`` followed by ``npm start``
 
-#### development
+#### Methods of Development
 - TDD
 - Clean Code
 - None Destructive CSS
